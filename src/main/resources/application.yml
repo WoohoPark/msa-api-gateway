@@ -1,0 +1,19 @@
+server:
+  port: 8000
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1 #하트비트 인터벌
+    lease-expiration-duration-in-seconds: 2 # 디스커버리는 서비스 등록 해제 하기 전에 마지막 하트비트에서부터 2초 기다림
+    # instance부분의 위에 2개 설정은 해당 서비스가 종료되면 디스커버리에 바로 삭제 되게 해주는 옵션으로 개발단계에서 편의성을 위해 넣었다.
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+      #discovery 의 주소를 입력하여 해당 서비스를 등록한다.
+
+spring:
+  application:
+    name: apigatewayservice
