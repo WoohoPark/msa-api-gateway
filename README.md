@@ -12,9 +12,17 @@ GateWay를 구축 하기 위해서는 Zuul과 Spring Cloud Gateway 둘 중에 �
 특히 zuul 2와 sping cloud gateway 비교글은 많은데 spring boot 2와 spring cloud 2가 릴리즈 된 후에는 spring gateway의 성능이 더 뛰어나다고 평이 많다.<br>
 
 ![post-images_tlatldms_dc281650-3d89-11ea-9b93-ef55f725a755_msa-api-gateway-60-1024](https://user-images.githubusercontent.com/24665763/197346289-c36c4270-3b41-4e12-b5de-20c99999e217.jpg)
-* Spring Cloud Gateway 구조
+* Spring Cloud Gateway 구조<br>
 
+<h2>SCG</h2>
+Spring Reactvie 생태계(Webflux)에 구현된 API Gateway이다.<br>
+Gateway Handler Mapping으로 들어오는 요청들을 적절한 대상으로 라우팅하는 간단하고 효과적인 방법을 제공한다.<br>
+Spring Cloud Gateway는 논블로킹(non-blocking), 비동기(Asynchronous) 방식의 Netty Server를 사용한다.<br>
+때문에 서블릿 컨테이너나 WAR로 빌드하면 동작하지 않는다.<br>
+(Netty 서버란 ? https://12bme.tistory.com/172)<br>
 
+기본적으로 비동식 처리가 가능 하다는 큰 장점을 가지며 Netty
+Webflux
 
 # 출처
 https://techblog.woowahan.com/2523/
