@@ -1,5 +1,25 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+
+  cloud:
+    gateway:
+      routes: #라우팅에 대한 정보
+        - id: user-service #해당 라우팅이 어떠한 이름으로 라우팅 될 것인지에 대한 이름
+          uri: lb://USER-SERVICE #현재 라우팅을 어디에 포워딩 시킬 것인지를 명시해준다.
+          predicates: #조건식으로 특정 요청이 predicates에 맞는 조건으로 들어오면 해당 route를 수행할 것을 지정한다.
+            - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<segment>.*), /$\{segment}
+        - id: board-service
+          uri: lb://BOARD-SERVICE
+          predicates:
+            - Path=/board/**
+          filters:
+            - RewritePath=/board/(?<segment>.*), /$\{segment}
+
 server:
-  port: 8000
+  port: 8889
 
 eureka:
   instance:
@@ -12,8 +32,3 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8888/eureka
-      #discovery 의 주소를 입력하여 해당 서비스를 등록한다.
-
-spring:
-  application:
-    name: apigatewayservice
