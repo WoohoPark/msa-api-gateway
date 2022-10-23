@@ -9,11 +9,7 @@ API Gateway는 다수의 서버를 하나로 묶어, 외부 애플리케이션 �
 
 <h2>Zuul vs Spinrg Cloud Gateway</h2>
 GateWay를 구축 하기 위해서는 Zuul과 Spring Cloud Gateway 둘 중에 하나를 선택해야 된다.<br>
-특히 zuul 2와 sping cloud gateway 비교글은 많은데 spring boot 2와 spring cloud 2가 릴리즈 된 후에는 spring gateway의 성능이 더 뛰어나다고 평이 많다.<br>
-
-![post-images_tlatldms_dc281650-3d89-11ea-9b93-ef55f725a755_msa-api-gateway-60-1024](https://user-images.githubusercontent.com/24665763/197346289-c36c4270-3b41-4e12-b5de-20c99999e217.jpg)
-* Spring Cloud Gateway 구조
-
+특히 zuul 2와 sping cloud gateway 비교글은 많은데 spring boot 2와 spring cloud 2가 릴리즈 된 후에는 spring gateway의 성능이 더 뛰어나다고 평이 많다.(비동기 방식이 추가되면서 성능상 높아졌을 것으로 보임.)<br>
 
 <h2> SCG </h2>
 SCG(Spring Colud Gateway)는 비동기+논블로킹 방식으로 작동하고 있으며, Netty 서버를 사용한다.
@@ -37,6 +33,11 @@ built-in GatewayFilter Factory<br>
 * AddRequestParameter<br>
 * RewritePath<br>
 (* 인증과 인가를 커버할 수 있고 Circuit Breaker 추가로 사용한다.)
+
+![post-images_tlatldms_dc281650-3d89-11ea-9b93-ef55f725a755_msa-api-gateway-60-1024](https://user-images.githubusercontent.com/24665763/197346289-c36c4270-3b41-4e12-b5de-20c99999e217.jpg)
+* Spring Cloud Gateway 구조
+<br>
+
 
 # 출처
 https://techblog.woowahan.com/2523/
