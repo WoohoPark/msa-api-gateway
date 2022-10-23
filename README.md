@@ -12,19 +12,37 @@ GateWay를 구축 하기 위해서는 Zuul과 Spring Cloud Gateway 둘 중에 �
 특히 zuul 2와 sping cloud gateway 비교글은 많은데 spring boot 2와 spring cloud 2가 릴리즈 된 후에는 spring gateway의 성능이 더 뛰어나다고 평이 많다.<br>
 
 ![post-images_tlatldms_dc281650-3d89-11ea-9b93-ef55f725a755_msa-api-gateway-60-1024](https://user-images.githubusercontent.com/24665763/197346289-c36c4270-3b41-4e12-b5de-20c99999e217.jpg)
-* Spring Cloud Gateway 구조<br>
+* Spring Cloud Gateway 구조
 
-<h2>SCG</h2>
-Spring Reactvie 생태계(Webflux)에 구현된 API Gateway이다.<br>
-Gateway Handler Mapping으로 들어오는 요청들을 적절한 대상으로 라우팅하는 간단하고 효과적인 방법을 제공한다.<br>
-Spring Cloud Gateway는 논블로킹(non-blocking), 비동기(Asynchronous) 방식의 Netty Server를 사용한다.<br>
-때문에 서블릿 컨테이너나 WAR로 빌드하면 동작하지 않는다.<br>
-(Netty 서버란 ? https://12bme.tistory.com/172)<br>
 
-기본적으로 비동식 처리가 가능 하다는 큰 장점을 가지며 Netty
-Webflux
+<h2> SCG </h2>
+SCG(Spring Colud Gateway)는 비동기+논블로킹 방식으로 작동하고 있으며, Netty 서버를 사용한다.
+
+Spring Cloud Gateway는 크게 3가지의 파트가 존재한다.
+
+1. Gateway Handler Mapping<br>
+Gateway 가 Client로 부터 어떤 요청이 왔는지 확인하고 Mapping 하는 작업을 수행한다.<br>
+
+2. Predicate<br>
+Handler Mapping 시에 필요한 Uri 정보나, Path 정보를 확인하는 주체가 된다.<br>
+built-in Predicate Factory<br>
+After<br>
+Cookie<br>
+Method<br>
+Path<br>
+3.Filter<br>
+Handler Mapping이 된 후 들어온 요청에 대한 필터 작업을 수행할 수 있다.<br>
+2개의 필터로 크게 나뉘며 사전(Pre Filter)와 사후(Post Filter)로 나눌 수 있다.<br>
+이런 필터에 대한 정보는 yml 설정 파일에도 정의할 수 있고 java code 에서 정의할 수도 있다.<br>
+built-in GatewayFilter Factory<br>
+AddRequestHeader, AddResponseHeader<br>
+AddRequestParameter<br>
+RewritePath<br>
+(* 인증과 인가를 커버할 수 있고 Circuit Breaker 추가로 사용한다.)
 
 # 출처
 https://techblog.woowahan.com/2523/
 https://dev-racoon.tistory.com/41
+https://wonit.tistory.com/499
+https://shining-life.tistory.com/53
 
