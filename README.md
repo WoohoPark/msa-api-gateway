@@ -26,18 +26,16 @@ Gateway 가 Client로 부터 어떤 요청이 왔는지 확인하고 Mapping 하
 2. Predicate<br>
 Handler Mapping 시에 필요한 Uri 정보나, Path 정보를 확인하는 주체가 된다.<br>
 built-in Predicate Factory<br>
-After<br>
-Cookie<br>
-Method<br>
-Path<br>
-3.Filter<br>
+* After,Cookie,Method,Path
+
+3. Filter<br>
 Handler Mapping이 된 후 들어온 요청에 대한 필터 작업을 수행할 수 있다.<br>
 2개의 필터로 크게 나뉘며 사전(Pre Filter)와 사후(Post Filter)로 나눌 수 있다.<br>
 이런 필터에 대한 정보는 yml 설정 파일에도 정의할 수 있고 java code 에서 정의할 수도 있다.<br>
 built-in GatewayFilter Factory<br>
-AddRequestHeader, AddResponseHeader<br>
-AddRequestParameter<br>
-RewritePath<br>
+* AddRequestHeader, AddResponseHeader<br>
+* AddRequestParameter<br>
+* RewritePath<br>
 (* 인증과 인가를 커버할 수 있고 Circuit Breaker 추가로 사용한다.)
 
 # 출처
