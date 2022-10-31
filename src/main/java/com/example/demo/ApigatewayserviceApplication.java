@@ -6,15 +6,9 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class ApigatewayserviceApplication {
-
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(ApigatewayserviceApplication.class)
 				.web(WebApplicationType.REACTIVE) // .REACTIVE, .SERVLET
 				.run(args);
-
-		//SPRING WEB FLUX SETTINGS
-
-//		SpringApplication.run(ApigatewayserviceApplication.class, args);
 	}
-
 }
